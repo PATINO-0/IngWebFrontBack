@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { FaHome, FaCube, FaColumns, FaMicrophone, FaShapes, FaCalculator, FaRuler, FaKey, FaMouse, FaList } from "react-icons/fa";
+import {
+  FaHome, FaCube, FaColumns, FaMicrophone, FaShapes,
+  FaCalculator, FaRuler, FaKey, FaMouse, FaList
+} from "react-icons/fa";
 
 interface SidebarItem {
   label: string;
@@ -14,6 +17,14 @@ const mainItems: SidebarItem[] = [
   { label: "Responsive Layouts", route: "/layouts", icon: <FaColumns /> },
   { label: "Text-to-Speech", route: "/tts", icon: <FaMicrophone /> },
   { label: "Figuras Geometricas", route: "/three_2", icon: <FaShapes /> },
+
+  // 🆕 Accesos API
+  { label: "Login (API)", route: "/api/login", icon: <FaKey /> },
+  { label: "Productos (API)", route: "/api/products", icon: <FaCube /> },
+  { label: "Crear Producto (API)", route: "/api/products/new", icon: <FaCube /> },
+  { label: "Categorías (API)", route: "/api/categories", icon: <FaList /> },
+  { label: "Perfil / Mis Órdenes", route: "/api/profile", icon: <FaMouse /> },
+  { label: "Ordenar (API)", route: "/api/order-builder", icon: <FaShapes /> },
 ];
 
 const exerciseItems: SidebarItem[] = [
@@ -67,7 +78,6 @@ export default function Sidebar() {
           <span>{openExercises ? "▲" : "▼"}</span>
         </button>
         {openExercises && <div className="pl-4 space-y-1">{exerciseItems.map(renderNavItem)}</div>}
-
       </div>
     </aside>
   );
